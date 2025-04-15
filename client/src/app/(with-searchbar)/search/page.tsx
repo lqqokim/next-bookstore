@@ -36,8 +36,11 @@ export default function Page({
   };
 }) {
   return (
-    <Suspense fallback={<BookListSkeleton count={3} />}>
-      <SearchResult q={searchParams.q || ""} />
+    <Suspense
+      key={searchParams?.q || ""}
+      fallback={<BookListSkeleton count={3} />}
+    >
+      <SearchResult q={searchParams?.q || ""} />
     </Suspense>
   );
 }
